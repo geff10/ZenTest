@@ -4,22 +4,33 @@
     android:layout_height="wrap_content"
     android:padding="8dp">
     <LinearLayout
-        android:id="@+id/Text"
-        android:orientation="vertical"
+        android:id="@+id/Row"
+        android:orientation="horizontal"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingLeft="10dip">
-        <TextView
-            android:id="@+id/Text1"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:id="@+id/Text"
+            android:orientation="vertical"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#FFFFFF"
-            android:textSize="20dip" />
-        <TextView
-            android:id="@+id/Text2"
+            android:paddingLeft="10dip">
+            <TextView
+                android:id="@+id/Text1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#FFFFFF"
+                android:textSize="20dip" />
+            <TextView
+                android:id="@+id/Text2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14dip"
+                android:textColor="#FFFFFF" />
+        </LinearLayout>
+        <Button
+            android:id="@+id/deleteButton"
+            android:text="@string/delete"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="14dip"
-            android:textColor="#FFFFFF" />
+            android:layout_height="wrap_content" />
     </LinearLayout>
 </RelativeLayout>

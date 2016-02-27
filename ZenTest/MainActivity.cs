@@ -9,8 +9,16 @@ namespace ZenTest
 	[Activity (Label = "ZenTest", MainLauncher = true, Icon = "@mipmap/icon")]
 	public class MainActivity : Activity
 	{
-		int count = 0;
+		int countRefresh = 1;
+		int countEdit = 1;
 		string[] items, items1, items2;
+
+		/*public string[] MainItems
+		{
+			public get { return items; }
+			public set { items = value; }
+		} */
+
 		List<TableItem> tableItems, tableItems1, tableItems2;
 		MyListAdapter listAdapter;
 
@@ -39,15 +47,22 @@ namespace ZenTest
 			tableItems = tableItems1;
 			listAdapter = new MyListAdapter(this, tableItems);
 			listView.Adapter = listAdapter;
-			listAdapter.NotifyDataSetChanged(); 
+			listAdapter.NotifyDataSetChanged();
 
 			buttonRefresh.Click += delegate {
-				tableItems = (count % 2 == 1) ?  tableItems1 : tableItems2;
+				tableItems = (countRefresh % 2 == 0) ?  tableItems1 : tableItems2;
 				listAdapter.ChangeItemSource(tableItems);
 				listAdapter.NotifyDataSetChanged(); 
-				++count;
+				++countRefresh;
+			};
+			buttonEdit.Click += delegate {
+				listAdapter.SetVisibilityOfDeleteButton(
+					(countEdit % 2 == 1) ? true : false );
+				listAdapter.NotifyDataSetChanged(); 
+				++countEdit;
 			};
 		}//oncreate
+			
 	}
 }
 
